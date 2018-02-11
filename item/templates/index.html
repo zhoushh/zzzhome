@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>易管家</title>
+    {% load static %}
+    <link href="{% static 'item/css/indexStyle.css' %}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id="head">
+    <span>
+    	<input type="button" name="add" value="添加" id="leftNav" class="headNav" />
+        <input type="button" name="feedback" value="建议" id="rightNav" class="headNav" />
+    </span>
+    </div>
+    <div id="queryItems" class="mainBox">
+    	<span id="queryTitle"><h1 align="center">物品查询</h1></span>
+        <center><span id="qyeryMethodLinks">
+            <a href="{% url 'item:query_by_name' %}"><input type="button" style="margin-right:40px" name="query_as_name" value="按名称" class="queryBtn" /></a>
+            <a href="{% url 'item:query_by_pos' %}"><input type="button" style="margin-left:40px" name="query_as_position" value="按位置" class="queryBtn" /></a>
+        </span></center>
+    </div>
+    <center>
+    <div id="ItemUsing" class="mainBox">
+
+    <table width="80%" border="1" bordercolor="#020202">
+    <tbody align="center" style="font-size:20px">
+    <tr>
+        <th colspan="5"><span style="color:red">使用中</span>的物品</th>
+    </tr>
+
+    <tr>
+      <td width="75px">ID</td>
+      <td width="200px">名称</td>
+      <td width="500px">备注</td>
+      <td>更新时间</td>
+      <td width="100px">&nbsp;</td>
+    </tr>
+
+    {% for item in items %}
+    {% if item.itemstatus == '使用' %}
+    <tr>
+        <td>{{item.iditem}}</td>
+        <td>{{item.itemname}}</td>
+        <td>{{item.itemnote}}</td>
+        <td>{{item.itemmodtime}}</td>
+        <td><a href="{% url 'item:item_detail' item.iditem %}"><input type="button" name="detail" value="详情" style="font-size:18px" /></a></td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+
+
+
+
+	<!--
+    <tr>
+
+      <td>{{.Iditem}}</td>
+      <td>{{.ItemName}}</td>
+      <td>{{.ItemNote}}</td>
+      <td>{{.ItemModTime}}</td>
+      <td><input type="button" name="detail" value="详情" style="font-size:18px" /></td>
+
+    </tr>
+    -->
+    <!--
+    <tr>
+    <td>{{.MakeRow}}</td>
+	</tr>-->
+    </tbody>
+    </table>
+
+    </div>
+        </center>
+</body>
+</html>

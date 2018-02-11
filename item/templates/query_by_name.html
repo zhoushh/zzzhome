@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>按名称查询</title>
+</head>
+<body>
+<form action="{% url 'item:query_by_name_result' %}" method="post">
+    {% csrf_token %}
+
+    <div id="head" style="width:100%"><span style="float:right"><a href="{% url 'index' %}">返回首页</a></span></div>
+    <label>请输入要查找物品的名称
+        <input type="text" name="nameToQuery" />
+    </label>
+    <input type="submit" name="submitToQuery" value="确定" />
+    <br />
+    <br />
+
+    <center>
+    <table width="80%" border="1" bordercolor="#020202">
+    <tbody align="center" style="font-size:20px">
+
+    <tr>
+        <th colspan="5">查找结果</th>
+    </tr>
+
+    <tr>
+        <th width="75px">ID</th>
+        <th width="200px">名称</th>
+        <th width="500px">位置</th>
+        <th width="100px">状态</th>
+        <th>更新时间</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td>{{item.iditem}}</td>
+        <td><a href="{% url 'item:item_detail' item.iditem %}">{{item.itemname}}</a></td>
+        <td>{{item.itempstn}}</td>
+        <td>{{item.itemstatus}}</td>
+        <td>{{item.itemmodtime}}</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+    </center>
+</form>
+</body>
+</html>

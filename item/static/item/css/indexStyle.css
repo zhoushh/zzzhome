@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+#rightNav{
+	margin-left:95%;
+	margin-top:0;
+}
+
+#leftNav{
+	margin-left:85%;
+}*/
+
+#head>span{
+	margin-right:0;
+	margin-left:90%;
+}
+
+#queryTitle{
+	width:auto;
+}
+
+#queryItems{
+	width:100%;
+}
+
+#qyeryMethodLinks{
+}
+
+.queryBtn{
+	height:50px;
+	width:150px;
+	font-size:18px;
+}
+
+#ItemUsing{
+	margin-top:20px;
+}
+
+.queryBtn:hover{
+	cursor:pointer;
+}

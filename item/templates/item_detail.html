@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>详情</title>
+</head>
+<body>
+<div id="head" style="width:100%"><span style="float:right"><a href="{% url 'index' %}">返回首页</a></span></div>
+<center>
+
+    <table border="1" style="margin-top:100px" width="450px">
+          <tbody style="font-size:20px">
+                <tr>
+                    <th scope="col" colspan="3">物品详情</th>
+                </tr>
+                <tr>
+                    <th scope="row" width="150px" height="30px">名称</th>
+                    <td colspan="2" width="300px">{{item.itemname}}</td>
+                </tr>
+                <tr>
+                    <th scope="row" height="30px">位置</th>
+                    <td colspan="2">{{item.itempstn}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">备注</th>
+                    <td colspan="2" height="200px">{{item.itemnote}}</td>
+                </tr>
+                <tr>
+                    <th scope="row" height="30px">状态</th>
+                    <td>{{item.itemstatus}}</td>
+                    <td><a href="{% url 'item:change_status' item.iditem %}">更改</a></td>
+                </tr>
+                <tr>
+                    <th scope="row" height="30px">上次更新时间</th>
+                    <td colspan="2">{{item.itemmodtime}}</td>
+                </tr>
+          </tbody>
+    </table>
+
+</center>
+</body>
+</html>
