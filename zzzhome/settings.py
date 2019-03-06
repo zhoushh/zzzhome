@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+# This is a user comment: read database config from local file
+db_config_file = open("../db_conn_str.txt")
+lines = []
+for line in db_config_file:
+    lines.append(line)
+db_config_file.close()
+db_username = lines[0][:-1]  # This is a user comment: remove the \n at the end of the line
+db_password = lines[1]  # This is a user comment: notice that temporarily this is the end of the file so there's no \n at this line
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -78,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'zzzhome_db',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': db_username,
+        'PASSWORD': db_password,
         'HOST': '',
         'PORT': '3306'
     }
