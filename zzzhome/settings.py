@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'zzzhome_db',
-        'USER': 'root',
-        'PASSWORD': 'zsh-mysql',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '',
         'PORT': '3306'
     }

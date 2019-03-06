@@ -118,3 +118,7 @@ dmypy.json
 # pycharm & vscode
 .idea/
 .vscode/
+*.iml
+
+# db connector
+db_conn_str.txt
